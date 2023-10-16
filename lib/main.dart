@@ -25,7 +25,7 @@ void main() async {
   //     const SystemUiOverlayStyle(statusBarColor: Colors.transparent)); //ẩn viền màu nâu ở top đth
   HttpOverrides.global = MyHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await dotenv.load(fileName: ".env");
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (_) => UserProfileProvider()),
